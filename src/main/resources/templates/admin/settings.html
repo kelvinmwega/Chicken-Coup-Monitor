@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+
+    <!-- Range Slider CSS
+    ============================================ -->
+    <link rel="stylesheet" th:href="@{../../static/css/themesaller-forms.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div th:replace="fragments/header-list-greenhouse :: header-list-greenhouse"/>
+
+<div class="breadcomb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcomb-list">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="breadcomb-wp">
+                                <div class="breadcomb-icon">
+                                    <i class="notika-icon notika-settings"></i>
+                                </div>
+                                <div class="breadcomb-ctn">
+                                    <h2>Greenhouse Settings</h2>
+                                    <p>Configure Thresholds and Settings below <span class="bread-ntd">...</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">-->
+                            <!--<div class="breadcomb-report">-->
+                                <!--<button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="notika-icon notika-sent"></i></button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-element-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list">
+
+                    <div class="cmp-tb-hd bcs-hd">
+                        <h2 id="deviceid"></h2>
+                        <!--<p>Place one add-on or button on either side of an input. You may also place one on both sides of an input. </p>-->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-map"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" id="location" class="form-control" placeholder="Location">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-mail"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" id="email" class="form-control" placeholder="Alerts Email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-phone"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" id="phone" class="form-control" placeholder="Alert Phone Number">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-bar-chart"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" id="height" class="form-control" placeholder="Enter Tank Height">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-alarm"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <!--<input type="text" class="form-control" placeholder="Alert Phone Number">-->
+                                    <div class="themesaller-forms mg-t-30">
+                                        <div class="spacer-b16a">
+                                            <label for="waterbudget">Water Level Alarm Limits:</label>
+                                            <input type="text" id="waterbudget" class="slider-input">
+                                        </div>
+                                        <div class="slider-wrapper purple-slider">
+                                            <div id="waterslider"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-alarm"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <!--<input type="text" class="form-control" placeholder="Alert Phone Number">-->
+                                    <div class="toggle-select-act mg-t-30">
+                                        <div class="nk-toggle-switch" data-ts-color="green">
+                                            <label for="ts4" class="ts-label">Send Alerts Via Email</label>
+                                            <input id="ts4" type="checkbox" hidden="hidden">
+                                            <label for="ts4" class="ts-helper"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-alarm"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <!--<input type="text" class="form-control" placeholder="Alert Phone Number">-->
+                                    <div class="toggle-select-act mg-t-30">
+                                        <div class="nk-toggle-switch" data-ts-color="green">
+                                            <label for="ts5" class="ts-label">Send Alerts Via SMS</label>
+                                            <input id="ts5" type="checkbox" hidden="hidden">
+                                            <label for="ts5" class="ts-helper"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group date nk-int-st">
+                            <button onclick="submitSettings()" class="btn btn-success btn-block notika-btn-success waves-effect">Save Settings</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+
+<!--<script th:src="@{js/controllers/wTCtrl.js}"></script>-->
+
+</body>
+</html>

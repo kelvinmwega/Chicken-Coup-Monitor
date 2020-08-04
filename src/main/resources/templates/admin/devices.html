@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div th:replace="fragments/header-list-greenhouse :: header-list-greenhouse"/>
+
+<div class="normal-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-tabs-list tab-pt-mg sm-res-mg-t-30 tb-res-mg-t-30">
+                    <ul class="nav nav-tabs tab-nav-center">
+                        <li class="active"><a data-toggle="tab" href="#home4">Devices</a></li>
+                        <li><a data-toggle="tab" href="#menu14">Sensors</a></li>
+
+                    </ul>
+                    <div class="tab-content tab-custom-st">
+                        <div id="home4" class="tab-pane in active animated zoomInRight">
+                            <div class="tab-ctn">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:800px; overflow:auto;">
+                                    <div class="normal-table-list mg-t-30">
+                                        <div class="basic-tb-hd">
+
+                                            <p>All Devices (<code> and Details</code>).</p>
+                                        </div>
+                                        <div class="bsc-tbl-cds">
+                                            <table class="table table-condensed" id="devicesTable">
+                                                <thead>
+                                                <tr>
+                                                    <th class="text-center">#</th>
+                                                    <th class="text-center">Device Id</th>
+                                                    <th class="text-center">Device Status</th>
+                                                    <th class="text-center">Device Type</th>
+                                                    <th class="text-center">Shelter</th>
+                                                    <th class="text-center">Sector</th>
+                                                    <th class="text-center">Country</th>
+                                                    <th class="text-center">Location</th>
+                                                    <th class="text-center">Created</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="devicesTableBody">
+                                                <tr>
+                                                    <th class="text-center">0</th>
+                                                    <td class="text-center">loading ... </td>
+                                                    <td class="text-center">loading ... </td>
+                                                    <td class="text-center">loading ...</td>
+                                                    <td class="text-center">loading ...</td>
+                                                    <td class="text-center">loading ...</td>
+                                                    <td class="text-center">loading ...</td>
+                                                    <td class="text-center">loading ...</td>
+                                                    <td class="text-center">loading ...</td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="menu14" class="tab-pane animated zoomInRight">
+                            <div class="tab-ctn">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:800px; overflow:auto;">
+                                    <div class="normal-table-list mg-t-30">
+                                        <div class="basic-tb-hd">
+
+                                            <p>All Sensors. (<code> and Sensor Details</code>).</p>
+                                        </div>
+                                        <div class="bsc-tbl-cds">
+                                            <table class="table table-condensed" id="sensorsTable">
+                                                <thead>
+                                                <tr>
+                                                    <th class="text-center">#</th>
+                                                    <th class="text-center">Code</th>
+                                                    <th class="text-center">Description</th>
+                                                    <th class="text-center">Type</th>
+                                                    <th class="text-center">Value</th>
+                                                    <th class="text-center">Read Tech</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="sensorsTableBody">
+                                                <tr>
+                                                    <th class="text-center">0</th>
+                                                    <td class="text-center">loading ... </td>
+                                                    <td class="text-center">loading ... </td>
+                                                    <td class="text-center">loading ...</td>
+                                                    <td class="text-center">loading ...</td>
+                                                    <td class="text-center">loading ...</td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+<script th:src="@{js/controllers/ghCtrl.js}"></script>
+
+</body>
+</html>

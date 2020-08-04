@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div th:replace="fragments/header-list-admin :: header-list-admin"/>
+
+<div class="notika-status-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <div class="website-traffic-ctn">
+                        <h2 id="hy" style="color:#0388fc"><span > -- </span></h2>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <div class="website-traffic-ctn">
+                        <h2 id="my" style="color:#6bfc03"><span> -- </span></h2>
+                        <p>Wind Direction</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div class="website-traffic-ctn">
+                        <h2 id="ly" style="color:#fcdb03"><span> -- </span></h2>
+                        <p>Pressure</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div class="website-traffic-ctn">
+                        <h2 id="zy" style="color:#fc5603"><span> -- </span></h2>
+                        <p>Precipitation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top:50px;" class="datepicker-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="curved-ctn text-center">
+                    <h6>Temperature</h6>
+                </div>
+                <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <canvas id="temperature"></canvas>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="curved-ctn text-center">
+                    <h6>Humidity</h6>
+                </div>
+                <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <canvas id="humidity"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+<script th:src="@{js/charts/Chart.js}"></script>
+<script th:src="@{js/morris/morris.js}"></script>
+<script th:src="@{js/controllers/dashCtrl.js}"></script>
+
+<script type="text/javascript">
+
+    $(function(){
+        setInterval(loadLatestData, 30000);
+    });
+
+</script>
+
+</body>
+</html>

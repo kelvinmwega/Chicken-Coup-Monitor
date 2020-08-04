@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div th:replace="fragments/header-list-greenhouse :: header-list-greenhouse"/>
+
+<div class="normal-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-tabs-list tab-pt-mg sm-res-mg-t-30 tb-res-mg-t-30">
+                    <ul class="nav nav-tabs tab-nav-center">
+                        <li class="active"><a data-toggle="tab" href="#home4">Chicken Coup</a></li>
+<!--                        <li><a data-toggle="tab" href="#menu14">Power</a></li>-->
+
+                    </ul>
+                    <div class="tab-content tab-custom-st">
+                        <div id="home4" class="tab-pane in active animated zoomInRight">
+                            <div class="tab-ctn">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:800px; overflow:auto;">
+                                    <div class="normal-table-list mg-t-30">
+                                        <div class="basic-tb-hd">
+
+                                            <p>All events will be logged below. (<code>Chicken Coup Events</code>).</p>
+                                        </div>
+                                        <div class="bsc-tbl-cds">
+                                            <table class="table table-condensed" id="eventsTable">
+                                                <thead>
+                                                <tr>
+                                                    <th class="text-center">Chicken Coup</th>
+                                                    <th class="text-center">Zone</th>
+                                                    <th class="text-center">Status</th>
+                                                    <th class="text-center">Message</th>
+                                                    <th class="text-center">Timestamp</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="eventsTableBody">
+                                                <tr>
+                                                    <td class="text-center">loading ... </td>
+                                                    <td class="text-center">loading ... </td>
+                                                    <td class="text-center">loading ...</td>
+                                                    <td class="text-center">loading ...</td>
+                                                    <td class="text-center">loading ...</td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="menu14" class="tab-pane animated zoomInRight">
+                            <div class="tab-ctn">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:800px; overflow:auto;">
+                                    <div class="normal-table-list mg-t-30">
+                                        <div class="basic-tb-hd">
+
+                                            <p>All Power Interruption Events will be logged below. (<code>Power Supply Interruptions</code>).</p>
+                                        </div>
+                                        <div class="bsc-tbl-cds">
+                                            <table class="table table-condensed" id="poweventsTable">
+                                                <thead>
+                                                <tr>
+                                                    <th class="text-center">Zone</th>
+                                                    <th class="text-center">Device ID</th>
+                                                    <th class="text-center">Status</th>
+                                                    <th class="text-center">Count since boot</th>
+                                                    <th class="text-center">Timestamp</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="poweventsTableBody">
+                                                <tr>
+                                                    <td class="text-center">loading ... </td>
+                                                    <td class="text-center">loading ... </td>
+                                                    <td class="text-center">loading ...</td>
+                                                    <td class="text-center">loading ...</td>
+                                                    <td class="text-center">loading ...</td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

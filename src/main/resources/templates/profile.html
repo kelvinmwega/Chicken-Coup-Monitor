@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--<title>Thrivy</title>-->
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div th:replace="fragments/header-list-profile :: header-list-profile"/>
+
+<div class="breadcomb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcomb-list">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="breadcomb-wp">
+                                <div class="breadcomb-icon">
+                                    <i class="notika-icon notika-support"></i>
+                                </div>
+                                <div class="breadcomb-ctn">
+                                    <h2>Profile</h2>
+                                    <p>My Personal Profile <span class="bread-ntd"> ... </span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                            <!--<div class="breadcomb-report">-->
+                                <!--<button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="notika-icon notika-sent"></i></button>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact-area">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="contact-list">
+                    <div class="contact-win">
+                        <div class="contact-img">
+                            <img src="img/post/1.jpg" alt="" />
+                        </div>
+                        <!--<div class="conct-sc-ic">-->
+                            <!--<a class="btn" href="#"><i class="notika-icon notika-facebook"></i></a>-->
+                            <!--<a class="btn" href="#"><i class="notika-icon notika-twitter"></i></a>-->
+                            <!--<a class="btn" href="#"><i class="notika-icon notika-pinterest"></i></a>-->
+                        <!--</div>-->
+                    </div>
+                    <div class="contact-ctn">
+                        <div class="contact-ad-hd">
+                            <h3 th:text="*{name}"> </h3>
+                            <h2 th:text="*{id}"> </h2>
+                            <h2 th:text="*{email}"> </h2>
+                            <p class="ctn-ads" th:text="*{phone}"> </p>
+
+                            <!--<p class="ctn-ads">USA, LA, aus</p>-->
+                        </div>
+                        <!--<p>Lorem ipsum dolor sit amete of the, consectetur adipiscing elitable. Vestibulum tincidunt.</p>-->
+                    </div>
+                    <!--<div class="social-st-list">-->
+                        <!--<div class="social-sn">-->
+                            <!--<h2>Likes:</h2>-->
+                            <!--<p>956</p>-->
+                        <!--</div>-->
+                        <!--<div class="social-sn">-->
+                            <!--<h2>Comments:</h2>-->
+                            <!--<p>434</p>-->
+                        <!--</div>-->
+                        <!--<div class="social-sn">-->
+                            <!--<h2>Views:</h2>-->
+                            <!--<p>676</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+
+    <title>Forgot | Thrivy Technologies</title>
+
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="login-content">
+
+    <!-- Register -->
+    <div class="nk-block toggled" id="l-register">
+        <form th:action="@{/forgot}" method="post">
+            <div class="nk-form">
+                <p class="text-left">Enter your Email Address Below to Reset the Password.</p>
+
+                <div class="input-group">
+                    <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-mail"></i></span>
+                    <div class="nk-int-st">
+                        <input type="text" class="form-control" placeholder="Email Address">
+                    </div>
+                </div>
+
+                <a href="#l-login" data-ma-action="nk-login-switch" data-ma-block="#l-login" class="btn btn-login btn-success btn-float"><i class="notika-icon notika-right-arrow"></i></a>
+            </div>
+        </form>
+
+        <div class="nk-navigation nk-lg-ic rg-ic-stl">
+            <a th:href="@{/login}" data-ma-action="nk-login-switch" data-ma-block="#l-login"><i class="notika-icon notika-right-arrow"></i> <span>Sign in</span></a>
+            <a th:href="@{/register}" data-ma-action="nk-login-switch" data-ma-block="#l-register"><i class="notika-icon notika-plus-symbol"></i> <span>Register</span></a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

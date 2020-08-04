@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+
+    <title>Login</title>
+
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="login-content">
+<!-- Login -->
+<div class="nk-block toggled" id="l-login">
+    <form th:action="@{/login}" method="post">
+        <div class="nk-form">
+            <div class="input-group">
+                <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-support"></i></span>
+                <div class="nk-int-st">
+                    <input type="email" name="username" id="username" class="form-control input-lg"
+                           placeholder="E-Mail" required="true" autofocus="true"/>
+                </div>
+            </div>
+            <div class="input-group mg-t-15">
+                <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-edit"></i></span>
+                <div class="nk-int-st">
+                    <input type="password" name="password" id="password" class="form-control input-lg"
+                           placeholder="Password" required="true"/>
+                </div>
+            </div>
+
+            <div class="input-group mg-t-15 center-block">
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">
+                        Invalid E-Mail and/or Password.
+                    </div>
+                </div>
+                <div th:if="${param.logout}">
+                    <div class="alert alert-info">
+                        You have been logged out.
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="fm-checkbox">-->
+                <!--<label><input type="checkbox" class="i-checks"> <i></i> Keep me signed in</label>-->
+            <!--</div>-->
+            <!--<a href="#l-register" data-ma-action="nk-login-switch" data-ma-block="#l-register" class="btn btn-login btn-success btn-float"><i class="notika-icon notika-right-arrow right-arrow-ant"></i></a>-->
+            <button  name="submit" type="submit"  class="btn btn-login btn-success btn-float">
+                <i class="notika-icon notika-right-arrow right-arrow-ant"></i>
+            </button>
+        </div>
+    </form>
+
+    <div class="nk-navigation nk-lg-ic">
+        <a th:href="@{/register}" data-ma-action="nk-login-switch" data-ma-block="#l-register"><i class="notika-icon notika-plus-symbol"></i> <span>Register</span></a>
+        <a th:href="@{/forgot}" data-ma-action="nk-login-switch" data-ma-block="#l-forget-password"><i>?</i> <span>Forgot Password</span></a>
+    </div>
+</div>
+
+</div>
+
+<!--<div th:replace="fragments/footer :: footer"/>-->
+
+</body>
+</html>

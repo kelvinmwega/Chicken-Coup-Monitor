@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thrivy Admin</title>
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div th:replace="fragments/header-list-greenhouse :: header-list-greenhouse"/>
+
+<div class="notika-status-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list mg-t-30">
+                    <div class="cmp-tb-hd">
+                        <h2>Welcome....</h2>
+                        <p>Select Greenhouse and Zone..</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h2>Select Greenhouse</h2>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Choose a Greenhouse...">
+                                    <option value="gh1">Greenhouse 1</option>
+                                    <option value="gh2">Greenhouse 2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn sm-res-mg-t-10">
+                                <h2>Select Zone</h2>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Choose a Zone...">
+                                    <option value="east">East</option>
+                                    <option value="west">West</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top:50px;" class="notika-status-area">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div class="website-traffic-ctn text-center">
+                        <div class="gauge-chart">
+                            <canvas id="meterGauge" width="180" height="110"></canvas>
+                        </div>
+                        <strong>Temperature : </strong>
+                        <label id="meter-textfield"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div class="website-traffic-ctn text-center">
+                        <div class="gauge-chart">
+                            <canvas id="batGauge" width="180" height="110"></canvas>
+                            <strong>Humidity : </strong>
+                            <label id="bat-textfield"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div class="website-traffic-ctn text-center">
+                        <div class="gauge-chart">
+                            <canvas id="tempGauge" width="180" height="110"></canvas>
+                            <strong>C02 : </strong>
+                            <label id="temp-textfield"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div class="website-traffic-ctn text-center">
+                        <div class="gauge-chart">
+                            <canvas id="humGauge" width="180" height="110"></canvas>
+                            <strong>Radiation : </strong>
+                            <label id="hum-textfield"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top:50px;" class="notika-status-area">
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-element-list mg-t-30">
+                        <div class="cmp-tb-hd">
+                            <h2>Actuator Panel</h2>
+                            <p>Greenhouse control panel..</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="nk-int-mk sl-dp-mn tg-dp-mn">
+                                    <h2>Main bank</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="toggle-select-act fm-cmp-mg">
+                                            <div class="nk-toggle-switch">
+                                                <label for="ts1" class="ts-label">Toggle Fan</label>
+                                                <input id="ts1" type="checkbox" hidden="hidden">
+                                                <label for="ts1" class="ts-helper"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="toggle-select-act sm-res-mg-t-10">
+                                            <div class="nk-toggle-switch disabled">
+                                                <label for="tsd" class="ts-label">Toggle Windows</label>
+                                                <input id="tsd" type="checkbox" hidden="hidden" checked="checked">
+                                                <label for="tsd" class="ts-helper"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="nk-int-mk sl-dp-mn tg-dp-mn mg-t-30">
+                                    <h2>Secondary Bank</h2>
+                                    <p></p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="toggle-select-act fm-cmp-mg">
+                                            <div class="nk-toggle-switch" data-ts-color="red">
+                                                <label for="ts2" class="ts-label">Toggle Curtains</label>
+                                                <input id="ts2" type="checkbox" hidden="hidden">
+                                                <label for="ts2" class="ts-helper"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="toggle-select-act sm-res-mg-t-10">
+                                            <div class="nk-toggle-switch" data-ts-color="blue">
+                                                <label for="ts3" class="ts-label">Toggle Lights</label>
+                                                <input id="ts3" type="checkbox" hidden="hidden">
+                                                <label for="ts3" class="ts-helper"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="toggle-select-act mg-t-30">
+                                            <div class="nk-toggle-switch" data-ts-color="green">
+                                                <label for="ts4" class="ts-label">Toggle </label>
+                                                <input id="ts4" type="checkbox" hidden="hidden">
+                                                <label for="ts4" class="ts-helper"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="toggle-select-act mg-t-30">
+                                            <div class="nk-toggle-switch" data-ts-color="cyan">
+                                                <label for="ts5" class="ts-label">Toggle</label>
+                                                <input id="ts5" type="checkbox" hidden="hidden">
+                                                <label for="ts5" class="ts-helper"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top:50px;" class="notika-status-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcomb-list">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="breadcomb-wp">
+                                <div class="breadcomb-icon">
+                                    <i class="notika-icon notika-windows"></i>
+                                </div>
+                                <div class="breadcomb-ctn">
+                                    <h2><strong id="devid"> </strong> </h2>
+                                    <p>Historical data collected from the device <span class="bread-ntd"> .. </span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="breadcomb-report">
+                                <!--<button data-toggle="tooltip" data-placement="left" title="Add New Device" class="btn"><i class="notika-icon notika-sent"></i></button>-->
+                                <a onclick="goToSettingsPage()" data-toggle="tooltip" data-placement="left" title="Device Settings" class="btn"><i class="notika-icon notika-settings"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="datepicker-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <form id="historyChecker">
+                    <div class="datepicker-int mg-t-30">
+                        <div class="cmp-tb-hd">
+                            <!--<h2>Date Picker</h2>-->
+                            <p>Date picker to view historical data beyond the collected 12 hours</p>
+                        </div>
+                        <div class="row">
+<!--                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">-->
+<!--                                <div class="form-group nk-datapk-ctm form-elet-mg">-->
+<!--                                    <div class="nk-int-mk sl-dp-mn">-->
+<!--                                        <h2>Select Device</h2>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="bootstrap-select fm-cmp-mg">-->
+<!--                                        <select id="deviceid" onchange="loadLatestData();" class="devicepicker" th:field="*{device}">-->
+<!--                                            &lt;!&ndash;<option value="">Select Device Type</option>&ndash;&gt;-->
+<!--                                            <option th:each="dev : ${device}"-->
+<!--                                                    th:value="${dev.id}"-->
+<!--                                                    th:text="${dev.id}"></option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                                    <label>Start</label>
+                                    <div class="input-group date nk-int-st">
+                                        <span class="input-group-addon"></span>
+                                        <input id="startDate" required type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group nk-datapk-ctm form-elet-mg" id="data_2">
+                                    <label>End</label>
+                                    <div class="input-group date nk-int-st">
+                                        <span class="input-group-addon"></span>
+                                        <input id="stopDate" required type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group nk-datapk-ctm form-elet-mg" id="">
+                                    <label>Submit Period</label>
+                                    <div class="input-group date nk-int-st">
+                                        <button type="submit" class="btn btn-success btn-block notika-btn-success waves-effect">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top:50px;" class="notika-status-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="line-chart-wp chart-display-nn">
+                    <canvas height="140vh" width="180vw" id="lightlevelchart"></canvas>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="line-chart-wp sm-res-mg-t-30 chart-display-nn">
+                    <canvas height="140vh" width="180vw" id="batterylevelchart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="line-chart-wp mg-t-30 chart-display-nn">
+                    <canvas height="140vh" width="180vw" id="templevelchart"></canvas>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="line-chart-wp mg-t-30 chart-mg-nt">
+                    <canvas height="140vh" width="180vw" id="humiditylevelchart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+<script th:src="@{js/controllers/ghCtrl.js}"></script>
+
+</body>
+</html>

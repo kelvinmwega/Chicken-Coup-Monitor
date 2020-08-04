@@ -1,0 +1,82 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+
+<body>
+<div th:fragment="header-list-profile">
+    <div class="container">
+
+        <div class="mobile-menu-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="mobile-menu">
+                            <nav id="dropdown">
+                                <ul class="mobile-menu-nav">
+                                    <li><a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
+                                        <ul class="collapse dropdown-header-top">
+                                            <li><a th:href="@{/admin}">Dashboard</a></li>
+                                            <li><a th:href="@{/admin/events}">Analytics</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a data-toggle="collapse" data-target="#Charts" href="#">Greenhouse</a>
+                                        <ul class="collapse dropdown-header-top">
+                                            <li><a th:href="@{/admin/monitor}">Monitor</a></li>
+                                            <li><a th:href="@{/admin/devices}">Devices</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a data-toggle="collapse" data-target="#settings" href="#">Settings</a>
+                                        <ul id="settings" class="collapse dropdown-header-top">
+                                            <li><a th:href="@{/admin/settings}">Thresholds</a></li>
+                                            <li><a th:href="@{/admin/profile}">Profile</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu end -->
+        <!-- Main Menu area start-->
+        <div class="main-menu-area mg-tb-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
+                            <li><a data-toggle="tab" href="#Home"><i class="notika-icon notika-house"></i> Home</a></li>
+                            <li><a data-toggle="tab" href="#info"><i class="notika-icon notika-bar-chart"></i> Greenhouse</a></li>
+                            <li class="active"><a data-toggle="tab" href="#mailbox"><i class="notika-icon notika-settings"></i> Settings</a></li>
+                        </ul>
+                        <div class="tab-content custom-menu-content">
+                            <div id="Home" class="tab-pane in notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    <li><a th:href="@{/admin}">Dashboard</a></li>
+                                    <li><a th:href="@{/admin/events}">Analytics</a></li>
+                                </ul>
+                            </div>
+                            <div id="info" class="tab-pane in notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    <li><a th:href="@{/admin/mygreenhouse}">Monitor</a></li>
+                                    <li><a th:href="@{/admin/control}">Control</a></li>
+                                </ul>
+                            </div>
+                            <div id="mailbox" class="tab-pane active notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    <li><a th:href="@{/admin/settings}">Thresholds</a></li>
+                                    <li><a th:href="@{/admin/profile}">Profile</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>
