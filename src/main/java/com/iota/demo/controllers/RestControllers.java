@@ -1,6 +1,11 @@
 package com.iota.demo.controllers;
 
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.iota.demo.services.DevicesService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -9,38 +14,22 @@ public class RestControllers {
 
     private final JsonParser parser = new JsonParser();
 
-//    @Autowired
-//    DataService dataService;
-//
-//    @Autowired
-//    DashboardView dashboardView;
-//
-//    @Autowired
-//    GreenHouseView greenHouseView;
-//
-//    @CrossOrigin
-//    @RequestMapping(value = "/",  method = RequestMethod.GET)
-//    public ResponseEntity<String> home() {
-//        return new ResponseEntity<>("Green House Data Service is online... :-)", HttpStatus.OK);
-//    }
-//
-//    @CrossOrigin
-//    @RequestMapping(value = "/event",  method = RequestMethod.POST, headers="Accept=application/json")
-//    public ResponseEntity<Boolean> wlmData(@RequestBody  String data) throws Exception{
-//        dataService.processDeviceData(parser.parse(data).getAsJsonObject());
-//        return new ResponseEntity<>(HttpStatus.OK);
-//    }
-//
-//    @CrossOrigin
-//    @RequestMapping(value = "/dashboard",  method = RequestMethod.GET, headers="Accept=application/json")
-//    public ResponseEntity<String> dashData() throws Exception{
-//        return new ResponseEntity<>(dashboardView.getDashboardViewData().toString(), HttpStatus.OK);
-//    }
-//
-//    @CrossOrigin
-//    @RequestMapping(value = "/ghdata",  method = RequestMethod.GET, headers="Accept=application/json")
-//    public ResponseEntity<String> greenhouseData() throws Exception{
-//        return new ResponseEntity<>(greenHouseView.getGreenHouseViewData().toString(), HttpStatus.OK);
-//    }
+    @Autowired
+    DevicesService devicesService;
+
+
+    @CrossOrigin
+    @RequestMapping(value = "/getWLMData",  method = RequestMethod.POST)
+    public ResponseEntity<String> getPowerData(@RequestBody String data) throws Exception{
+        JsonObject req = parser.parse(data.trim()).getAsJsonObject();
+        return new ResponseEntity<>(devicesService.getDevData(req, "wlm").toString(), HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/getEMDData",  method = RequestMethod.POST)
+    public ResponseEntity<String> getEMDData(@RequestBody String data) throws Exception{
+        JsonObject req = parser.parse(data.trim()).getAsJsonObject();
+        return new ResponseEntity<>(devicesService.getDevData(req, "emd").toString(), HttpStatus.OK);
+    }
 
 }

@@ -32,13 +32,15 @@ function loadDevices(){
                 devType = "Main Water Level Monitor";
             } else if (data[i].devicetype == "memd"){
                 devType = "Mains Environment Monitor";
+            } else if (data[i].devicetype == "tracker"){
+                devType = "Tracker GPS";
             }
 
             const zone = getZone(data[i].id);
 
             tr = $("<tr class=''" + " id=" + data[i].id + "/>");
-            tr.append("<td class='text-center'>" + i + "</td>");
-            tr.append("<td class='text-center'>" + zone + "</td>");
+            tr.append("<td class='text-center'>" + (i + 1) + "</td>");
+            tr.append("<td class='text-center'>" + data[i].name + "</td>");
             tr.append("<td class='text-center'>" + data[i].id + "</td>");
             tr.append("<td class='text-center'>" + data[i].imsi + "</td>");
             tr.append("<td class='text-center'>" + devType + "</td>");
@@ -64,8 +66,9 @@ function info(id, type) {
         window.location = '/wlm?id=' + id + '&height=' + passedInfo[1];
     } else if (passedInfo[0] === "semd" || passedInfo[0] === "memd") {
         window.location = '/emd?id=' + id;
+    } else if (passedInfo[0] === "tracker") {
+        window.location = '/cartracking?id=' + id;
     }
-
 }
 
 function getZone(dd) {

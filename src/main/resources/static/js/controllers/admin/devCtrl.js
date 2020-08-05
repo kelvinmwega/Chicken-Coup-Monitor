@@ -69,10 +69,10 @@ function loadDevices(){
 
         for (var i = 0; i < data.length; i++){
             var devType;
-            // var modifyClick = "onclick = 'modify(this.id)'";
-            // var modifyButton = "<button type='button'" + modifyClick + "id='" + data.docs[i].id +"'data-toggle='modal' data-target='#modifyDevModal' class='btn btn-outline-secondary'>Edit Device</button>";
-            //
-            //
+            var modifyClick = "onclick = 'info(this.id, this.name)'";
+            var modifyButton = "<button type='button'" + modifyClick + " id='" + data[i].id  + "' name='" + data[i].devicetype + "-" + data[i].height +
+                "'class='btn btn-sm btn-block btn-info'>View Data</button>";
+
             if (data[i].devicetype == "semd"){
                 devType = "Solar Environment Monitor";
             } else if (data[i].devicetype == "emdgps"){
@@ -85,23 +85,41 @@ function loadDevices(){
                 devType = "Main Water Level Monitor";
             } else if (data[i].devicetype == "memd"){
                 devType = "Mains Environment Monitor";
+            } else if (data[i].devicetype == "tracker"){
+                devType = "Tracker GPS";
             }
 
             tr = $("<tr class=''" + " id=" + data[i].id + "/>");
-            tr.append("<td class='text-center'>" + i + "</td>");
+            tr.append("<td class='text-center'>" + (i + 1) + "</td>");
             tr.append("<td class='text-center'>" + data[i].id + "</td>");
-            tr.append("<td class='text-center'>" + data[i].imsi + "</td>");
+            // tr.append("<td class='text-center'>" + data[i].imsi + "</td>");
             tr.append("<td class='text-center'>" + devType + "</td>");
             tr.append("<td class='text-center'>" + data[i].deviceowner + "</td>");
-            tr.append("<td class='text-center'>" + data[i].email + "</td>");
-            tr.append("<td class='text-center'>" + data[i].phone + "</td>");
-            tr.append("<td class='text-center'>" + data[i].location + "</td>");
-            tr.append("<td class='text-center'>" + new Date(data[i].timestamp).toString().substring(0, 25) + "</td>");
+            // tr.append("<td class='text-center'>" + data[i].email + "</td>");
+            // tr.append("<td class='text-center'>" + data[i].phone + "</td>");
+            // tr.append("<td class='text-center'>" + data[i].location + "</td>");
+            // tr.append("<td class='text-center'>" + new Date(data[i].timestamp).toString().substring(0, 25) + "</td>");
             tr.append("<td class='text-center'>" + new Date(data[i].latestupdate).toString().substring(0, 25) + "</td>");
-            // tr.append("<td class='text-center'>" + modifyButton + "</td>");
+            tr.append("<td class='text-center'>" + modifyButton + "</td>");
             $('table#devicesTable').append(tr);
         }
     });
+}
+
+function info(id, type) {
+    console.log(id + "--" + type);
+
+    var passedInfo = type.split("-");
+
+    if (passedInfo[0] === "swlm" || passedInfo[0] === "mwlm"){
+        window.location = '/wlm?id=' + id + '&height=' + passedInfo[1];
+    } else if (passedInfo[0] === "semd" || passedInfo[0] === "memd") {
+        window.location = '/emd?id=' + id;
+    } else if (passedInfo[0] === "gctrl") {
+        window.location = '/controller?id=' + id;
+    } else if (passedInfo[0] === "tracker") {
+        window.location = '/cartracking?id=' + id;
+    }
 }
 
 function reqFN(dataToSubmit, url, type){

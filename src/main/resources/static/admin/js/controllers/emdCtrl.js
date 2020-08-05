@@ -1,4 +1,4 @@
-const getELMDataURL = "/getEMDData";
+const getELMDataURL = "/api/getEMDData";
 
 let lightlevelchart, templevelchart, batterylevelchart, humiditylevelchart;
 
@@ -28,7 +28,7 @@ function loadLatestData(){
     const stopTime = new Date();
     let dataObj = {};
 
-    stopTime.setHours(stopTime.getHours() - 12);
+    stopTime.setHours(stopTime.getHours() - 24);
 
     console.log(startTime.toISOString() + " -- " + stopTime.toISOString());
 
@@ -41,11 +41,13 @@ function loadLatestData(){
 
 function dataReqProc(dataObj) {
 
-    const url = new URL(window.location.href);
-    const searchParams = new URLSearchParams(url.search);
-    // console.log(searchParams.get('id'));
+    // const url = new URL(window.location.href);
+    // const searchParams = new URLSearchParams(url.search);
+    // // console.log(searchParams.get('id'));
+    //
+    // dataObj.deviceId = searchParams.get('id');
 
-    dataObj.deviceId = searchParams.get('id');
+    dataObj.deviceId = "868259027597320";
 
     const zone = getZone(dataObj.deviceId);
 
@@ -507,7 +509,7 @@ function getZone(dd) {
             break;
 
         case "868259027597320":
-            zone = "Kitchen";
+            zone = "Chicken Coup";
             break;
 
         case "865905021074731":

@@ -47,8 +47,8 @@ function dataReqProc(dataObj) {
 
     const url = new URL(window.location.href);
     const searchParams = new URLSearchParams(url.search);
-    // dataObj.deviceId = searchParams.get('id');
-    dataObj.deviceId = "865905027521255";
+    dataObj.deviceId = searchParams.get('id');
+    // dataObj.deviceId = "865905027521255";
 
     reqFN(dataObj, getTackerDataUrl,'post').done(processTrackerData);
 }
