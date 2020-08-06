@@ -51,7 +51,7 @@ function dataReqProc(dataObj) {
 
     const zone = getZone(dataObj.deviceId);
 
-    $('#devid').text("Zone :  " + zone);
+    $('#devid').text("Location :  " + zone);
 
     reqFN(dataObj, getELMDataURL,'post').done(processWLMData);
 }

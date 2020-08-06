@@ -16,6 +16,4 @@ public class MainController {
         return "forgot";
     }
 
-
-
 }
