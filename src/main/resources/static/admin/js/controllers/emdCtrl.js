@@ -30,7 +30,7 @@ function loadLatestData(){
 
     stopTime.setHours(stopTime.getHours() - 24);
 
-    console.log(startTime.toISOString() + " -- " + stopTime.toISOString());
+    // console.log(startTime.toISOString() + " -- " + stopTime.toISOString());
 
     dataObj.startTime = startTime.toISOString();
     dataObj.stopTime = stopTime.toISOString();
@@ -74,14 +74,14 @@ function reqFN(dataToSubmit, url, type){
         },
         error : function(xhr, status, error){
             var err = eval("(" + xhr.responseText + ")");
-            console.log(err.Message);
+            console.error(err.Message);
         }
     });
 
 }
 
 function processWLMData(data) {
-    console.log(data);
+    // console.log(data);
 
     if(data.length === 0){
         $('#devstatus').text("!! No Data Available !!");
@@ -129,19 +129,19 @@ function dataLoader(data){
     const calcLight = Math.round((data[0].light/1024)*100);
 
     $('#lastseen').text("Last Seen : " + lastseen.toLocaleString().toString().substring(0,25));
-    // $('#devbat').text("Battery : " + data[0].battery + " mV");
+    $('#devbat').text("Battery : " + data[0].battery + " mV");
     $('#lastsig').text("Signal   : " + data[0].signal + " dBm");
-    // $('#devtemp').text("Temperature   : " + data[0].temperature + " C");
-    // $('#devhum').text("Humidity   : " + data[0].humidity + " %");
+    $('#devtemp').text("Temperature   : " + data[0].temperature + " C");
+    $('#devhum').text("Humidity   : " + data[0].humidity + " %");
     // $('#heightstat').text("Light Intensity   : " + calcLight + " %");
     $('#count').text("Message Number : " + data[0].count);
-    $('#doorstat').text("Door Status : " + doorstatus);
-    $('#powerstat').text("Power Status   : " + powerstatus);
-    $('#doorcnt').text("Door Opened : " + (data[0].doorcount ? data[0].doorcount : 0)  + " Times");
-    $('#powercnt').text("Power Switched On   : " + (data[0].powercount ? data[0].powercount : 0) + " Times");
+    // $('#doorstat').text("Door Status : " + doorstatus);
+    // $('#powerstat').text("Power Status   : " + powerstatus);
+    // $('#doorcnt').text("Door Opened : " + (data[0].doorcount ? data[0].doorcount : 0)  + " Times");
+    // $('#powercnt').text("Power Switched On   : " + (data[0].powercount ? data[0].powercount : 0) + " Times");
     // $('#errors').text("Tx Errors   : " + data[0].errors);
-    // $('#memory').text("Free Memory   : " + data[0].memory + " bytes");
-    // $('#msgtype').text("Message Type   : " + data[0].datatype);
+    $('#memory').text("Free Memory   : " + data[0].memory + " bytes");
+    $('#msgtype').text("Message Root   : " + data[0].root);
 
     if ((curTime.getTime() - lastseen.getTime()) > 1800000){
         $('#devstatus').text("Device is Offline");

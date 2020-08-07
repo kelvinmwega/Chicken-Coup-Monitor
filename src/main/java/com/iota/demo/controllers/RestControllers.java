@@ -29,7 +29,7 @@ public class RestControllers {
     @RequestMapping(value = "/getEMDData",  method = RequestMethod.POST)
     public ResponseEntity<String> getEMDData(@RequestBody String data) throws Exception{
         JsonObject req = parser.parse(data.trim()).getAsJsonObject();
-        return new ResponseEntity<>(devicesService.getDevData(req, "emd").toString(), HttpStatus.OK);
+        return new ResponseEntity<>(devicesService.getDevData(req, "chicken-coup-data").toString(), HttpStatus.OK);
     }
 
 }
