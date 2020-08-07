@@ -1,4 +1,4 @@
-# Chicken Coup Monitor Client Dashboard
+# Chicken Coup Monitor Admin Dashboard
 
 ## Distributed systems ui demo to display device data and distributed ledger message root
 
